@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&family=Indie+Flower&family=Special+Elite&family=Patrick+Hand&display=swap" rel="stylesheet">
     <style>
         * {
@@ -83,6 +84,95 @@
             25% { transform: translateY(-20px) rotate(5deg); }
             50% { transform: translateY(0px) rotate(0deg); }
             75% { transform: translateY(-15px) rotate(-5deg); }
+        }
+
+        /* Scrapbook Front Page Style */
+        .scrapbook-cover {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffb6c1; /* Pink background */
+            background-image: radial-gradient(#ff99aa 1px, transparent 1px);
+            background-size: 20px 20px; /* Small strawberry-like pattern */
+            position: relative;
+            z-index: 100;
+        }
+
+        .cover-card {
+            background: #fffdf9;
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            border-left: 15px solid #88C999; /* The green "spine" of the book */
+        }
+
+        .cover-tape {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 35px;
+            background: rgba(180, 150, 220, 0.6); /* Purple washi tape from your image */
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(255,255,255,0.2) 5px, rgba(255,255,255,0.2) 10px);
+        }
+
+        .strawberry-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .cover-title {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 48px;
+            color: #D45D79;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .matcha-text {
+            color: #558B2F;
+        }
+
+        .cover-tagline {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .open-btn {
+            background-color: #88C999;
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            box-shadow: 0 5px 15px rgba(136, 201, 153, 0.4);
+        }
+
+        .open-btn:hover {
+            transform: scale(1.05);
+            background-color: #66aa77;
+        }
+
+        .est-text {
+            position: absolute;
+            bottom: 20px;
+            right: 25px;
+            font-size: 14px;
+            color: #bbb;
         }
 
         /* Hero Section */
@@ -689,6 +779,21 @@
     <div class="floating-decor matcha" style="bottom: 30%; right: 25%; animation-delay: 1.5s;">🍵</div>
     <div class="floating-decor matcha" style="top: 70%; left: 12%; animation-delay: 2.5s;">🍵</div>
 
+    <div class="scrapbook-cover">
+    <div class="cover-card">
+        <div class="cover-tape"></div>
+        <div class="cover-content">
+            <div class="strawberry-icon">🍓🍵</div>
+            <h2 class="cover-title">THE <br> <span class="matcha-text">ARCHIVE</span></h2>
+            <p class="cover-tagline">"Budak budak kacip archive"</p>
+            <button class="open-btn" onclick="document.querySelector('.hero').scrollIntoView({behavior: 'smooth'})">
+                Open Archive
+            </button>
+            </div>
+            <div class="est-text">Est. 2026</div>
+        </div>
+    </div>
+
     <section class="hero">
         <div class="washi-tape top"></div>
         <div class="hero-content">
@@ -755,7 +860,7 @@
             {
                 name: "Alieff",
                 birthday: "September 14",
-                comment: `Korang nak tau apa lagi psal aku ni?? HAHAHAH. Takkan aku nak tulis msg utk diri sendiri lah pulak an🤣`,
+                comment: `haa tgk ape....Takkan aku nak tulis msg utk diri sendiri lah pulak an🤣`,
                 color: "var(--pastel-peach)",
                 colorRgb: "255, 218, 185",
                 photo: "alieff.jpg"
@@ -763,7 +868,7 @@
             {
                 name: "Mona",
                 birthday: "September 18",
-                comment: "A true team player with an incredible work ethic. Your attention to detail and commitment make all the difference! 🎯",
+                comment: `Macam aku selalu cakap kau adalah org yg paling aku expect aku akan rapat an 🤣 tpi x menyesal lah kenal kau. Sbgai orang paling "tua" di dalam archive an... walaupun cmtu aku x penah rase pressure tu but aku still respect kau punya smgt kau utk teruskan hidup tu an (ckp mcm nk mati dah an 😭) .Well bknnye kita x jumpa lagi an psni so malas nk pnjg 😝 pape un teruskan smgt sis! 🫶🏻`,
                 color: "var(--pastel-yellow)",
                 colorRgb: "255, 250, 205",
                 photo: "mona.jpg"
@@ -771,7 +876,11 @@
             {
                 name: "Ain",
                 birthday: "September 4",
-                comment: "Your calm presence and wise advice help guide us through any challenge. So grateful to have you on the team! 🍀",
+                comment: `Hmmmmmmmm...ni susah ni nk ckp HAHAHAH xdelahh. Someone yg cheerful gile and sensitive gile wooo 🫢 HAHAHAHA 
+                        Thanks menjdi "penyeri" group ni la kan walaupun kdg badmood kau tu susah kawal skit tpi skrg dah ada pojan uhuk 🤭
+                        Ofc kau nye emosi x betul skli pun cara kau keje sbgai sm x penah salah kau tetap kawal emosi utk keje kau 🫡
+                        Well goodluck lah intern nnti jgn gi menggila sna sni sgtt kesian pojan nk kwal kau nnti HAHAHAH 
+                        Bye² sis!`,
                 color: "var(--pastel-sage)",
                 colorRgb: "199, 255, 218",
                 photo: "ain.jpeg"
@@ -779,7 +888,10 @@
             {
                 name: "Fadhlina",
                 birthday: "November 8",
-                comment: "The creative genius we all admire! Your innovative ideas and unique perspective push us to think differently. 🎨",
+                comment: `Orang yg mengajar aku tentg audio sehingga aku di sni (ceh ckp mcm dah berjaya an) well aku x lupa kan guru aku spe 🫡 
+                            Aku x tau nk byk komen mcm mna ke kau HAHAHAHA 😂 tpi thanks lah menjdi geng teknikal aku selalu...parah gak jdi antara teknikal je an dlm atra ni 
+                            Goodluck lah utk intern nnti...jgn mcm² lak fadh haaa (xde apa un) 
+                            Bye² fadhh`,
                 color: "var(--pastel-blue)",
                 colorRgb: "212, 228, 255",
                 photo: "fadhlina.jpeg"
@@ -787,7 +899,11 @@
             {
                 name: "Afiah",
                 birthday: "July 20",
-                comment: "Your kindness and supportive nature make you the heart of our group. You're always there when someone needs help! 💜",
+                comment: `Sebelum archive wujud kita dah selalu menjdi satu geng an 😌 (tpi itu un sbb jiha la kan ) tpi aku appreciate lah kau ofc lgi² byk tumpang kereta kau an 
+                            Mcm sblm ni aku ckp an , kau mengingatkan aku akak sulung aku... Dia mcm org yg "perfect" enn...academic ..baikk ape tah lgi (xnk puji lbh² nnti ada yg kembang)
+                            Kau mesti mcm pelik ape yg perfect nye an pdhal diri sndiri mcm x btul 😂 tpi itula aku nmpk nye and smpai skrg so percayalah diri tu 😌
+                            Well goodluck intern jauhhh snaa klau jumpa and do your bestt 🧡
+                            Byee sis`,
                 color: "var(--pastel-pink)",
                 colorRgb: "230, 230, 250",
                 photo: "afiah.jpg"
@@ -795,7 +911,11 @@
             {
                 name: "Najihah",
                 birthday: "March 15",
-                comment: "A powerhouse of talent and determination! Your leadership and vision inspire us to reach new heights together. 🚀",
+                comment: `My best friend aka my ex jugak HAHAHAHA intro kne semat...uhum 
+                        Thanks selalu ada utk semua org di mna klau smua org x kisah...kau still kisah psal tu 
+                        Pastu an walaupun kau ni pendek tpi smgt kau tggi HAHAHAH tpi betul lah klau x..kau still xdek kat sni an . Kadang aku rse mmg mcm dpt akak sulung lgi satu an walaupun kau ni sebaya dgn aku...mcm x leh nk brain tpi bgitulah an...tpi teguran² kau lah tu inshallah akan bantu org lain
+                        Haaa...buat pe nk pnjg² bknnye kita x jumpa lgi psnii ehek so itu shja 
+                        See you soon sisterr ❤️`,
                 color: "var(--pastel-coral)",
                 colorRgb: "255, 179, 186",
                 photo: "najihah.jpg"
@@ -803,7 +923,9 @@
             {
                 name: "Adib",
                 birthday: "July 29",
-                comment: "The glue that holds us together! Your loyalty, humor, and genuine care for everyone make this team feel like family. 💚",
+                comment: `Hmmmm x tahu nk comment apee tpi sejak kau dh busy kita dah jarang² lepak ann.. 
+                        Aku harap kita boleh laa lepak² lgi tpi kli ni utk picnic kau x dpt nk pegi but next time lahh and goodluck for the future lah nanti.
+                        See you soon`,
                 color: "var(--pastel-mint)",
                 colorRgb: "213, 232, 212",
                 photo: "adib.png"
