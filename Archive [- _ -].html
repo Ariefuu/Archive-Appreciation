@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCHIVE - Strawberry Matcha Edition 🍓🍵</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&family=Indie+Flower&family=Special+Elite&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink-light: #FFC0CB;
+            --pink-medium: #FFB7B2;
+            --pink-dark: #D45D79;
+            --green-light: #B2D8B2;
+            --green-medium: #88C999;
+            --green-dark: #558B2F;
+            --bg-white: #FFFFFF;
+            --bg-matcha: #E8F5E9;
+            
+            /* Pastel colors for members */
+            --pastel-pink: #FFD1DC;
+            --pastel-peach: #FFDAB9;
+            --pastel-yellow: #FFFACD;
+            --pastel-mint: #C7FFDA;
+            --pastel-blue: #D4E4FF;
+            --pastel-lavender: #E6E6FA;
+            --pastel-coral: #FFB3BA;
+            --pastel-sage: #D5E8D4;
+        }
+
+        body {
+            font-family: 'Caveat', cursive;
+            background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-matcha) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Strawberry Pattern Background */
+        body::before {
+            content: '🍓';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 40px;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+            line-height: 80px;
+            word-spacing: 40px;
+        }
+
+        /* Floating Decorative Elements */
+        .floating-decor {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-decor.strawberry {
+            font-size: 30px;
+            opacity: 0.6;
+        }
+
+        .floating-decor.matcha {
+            font-size: 25px;
+            opacity: 0.5;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(0px) rotate(0deg); }
+            75% { transform: translateY(-15px) rotate(-5deg); }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 80px 20px 60px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--green-light) 100%);
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.1) 10px, rgba(255,255,255,0.1) 20px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero h1 {
+            font-family: 'Permanent Marker', cursive;
+            font-size: clamp(48px, 8vw, 96px);
+            color: var(--pink-dark);
+            text-shadow: 
+                3px 3px 0 var(--green-medium),
+                6px 6px 0 rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+            animation: titlePop 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes titlePop {
+            0% { transform: scale(0) rotate(-5deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .hero-subtitle {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(24px, 4vw, 36px);
+            color: var(--green-dark);
+            font-weight: 700;
+            animation: subtitleSlide 1s ease-out 0.3s both;
+        }
+
+        @keyframes subtitleSlide {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Washi Tape Decoration */
+        .washi-tape {
+            position: absolute;
+            height: 40px;
+            width: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 182, 193, 0.7),
+                rgba(255, 182, 193, 0.7) 10px,
+                rgba(255, 192, 203, 0.7) 10px,
+                rgba(255, 192, 203, 0.7) 20px
+            );
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transform: rotate(-2deg);
+        }
+
+        .washi-tape.top {
+            top: 20px;
+            left: -5%;
+            width: 110%;
+        }
+
+        .washi-tape.bottom {
+            bottom: 20px;
+            right: -5%;
+            width: 110%;
+            transform: rotate(1deg);
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(178, 216, 178, 0.7),
+                rgba(178, 216, 178, 0.7) 10px,
+                rgba(136, 201, 153, 0.7) 10px,
+                rgba(136, 201, 153, 0.7) 20px
+            );
+        }
+
+        /* NEW: Our Sweet Story Section Styles */
+        .story-container {
+            background: #fff;
+            border: 3px dashed var(--pink-light);
+            border-radius: 40px;
+            max-width: 1000px;
+            margin: 0 auto 60px auto;
+            padding: 60px 40px 40px 40px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .story-tape {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 60px;
+            background-color: var(--green-dark);
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.15) 10px,
+                rgba(255,255,255,0.15) 20px
+            );
+            z-index: 10;
+        }
+
+        .story-image-wrapper {
+            flex: 1;
+            position: relative;
+            background: var(--green-light);
+            padding: 0 12px 12px 0; 
+            border-radius: 15px;
+            transform: rotate(-2deg);
+        }
+
+        .story-image {
+            width: 100%;
+            aspect-ratio: 16 / 11;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 6px solid white;
+            display: block;
+            transform: translate(-12px, -12px);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .story-text {
+            flex: 1.2;
+        }
+
+        .story-title {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 42px;
+            color: var(--pink-dark);
+            margin-bottom: 15px;
+        }
+
+        .story-text p {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 24px;
+            line-height: 1.5;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-family: 'Permanent Marker', cursive;
+            font-size: clamp(32px, 5vw, 48px);
+            color: var(--pink-dark);
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '~~~~~';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--green-medium);
+            font-size: 24px;
+        }
+
+        /* Members Grid */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        /* Member Card */
+        .member-card {
+            position: relative;
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 
+                0 10px 30px rgba(0,0,0,0.1),
+                0 0 0 1px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column           
+        }
+
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 20px;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--card-color), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 
+                0 20px 50px rgba(0,0,0,0.2),
+                0 0 30px var(--card-color);
+        }
+
+        .member-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Tape on Card */
+        .card-tape {
+            position: absolute;
+            top: -10px;
+            right: 30px;
+            width: 80px;
+            height: 30px;
+            background: rgba(255, 192, 203, 0.6);
+            transform: rotate(-5deg);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Photo Container */
+        .member-photo {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3 / 4; /* Standard portrait ratio */
+            border-radius: 18px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--card-color) 0%, rgba(255,255,255,0.5) 100%);
+            border: 3px dashed rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            backface-visibility: hidden;
+        }
+
+        .member-card:hover .member-photo {
+            box-shadow: 
+                0 0 30px var(--card-color),
+                inset 0 0 20px rgba(255,255,255,0.5);
+            transform: scale(1.05);
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            object-position: top;
+            display: block;
+        }
+
+        .member-card:hover .member-photo img {
+            transform: scale(1.1);
+        }
+
+        /* Member Info */
+        .member-info {
+            text-align: center;
+        }
+
+        .member-name {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 28px;
+            color: var(--pink-dark);
+            margin-bottom: 8px;
+        }
+
+        .member-birthday {
+            font-size: 20px;
+            color: var(--green-dark);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .member-preview {
+            font-size: 16px;
+            color: rgba(0,0,0,0.5);
+            font-style: italic;
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Modal Card */
+        .modal-card {
+            position: relative;
+            background: var(--bg-white);
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 
+                0 30px 80px rgba(0,0,0,0.3),
+                0 0 0 10px rgba(255,255,255,0.1);
+            overflow-y: auto;
+            transform: scale(0.8) rotateX(30deg);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1) rotateX(0deg);
+            opacity: 1;
+        }
+
+        /* Paper Texture Effect */
+        .modal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 29px, rgba(0,0,0,0.03) 29px, rgba(0,0,0,0.03) 30px);
+            pointer-events: none;
+            border-radius: 25px;
+        }
+
+        /* Close Button */
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: var(--pink-medium);
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: var(--pink-dark);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .modal-photo {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            max-width: 400px; /* Limits size on desktop so it doesn't get too tall */
+            margin: 0 auto 15px; /* Centers the photo */
+            border-radius: 18px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--card-color) 0%, rgba(255,255,255,0.5) 100%);
+            border: 4px dashed rgba(0,0,0,0.1);
+        }
+
+        .modal-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed var(--card-color);
+        }
+
+        .modal-name {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 36px;
+            color: var(--pink-dark);
+            margin-bottom: 10px;
+        }
+
+        .modal-birthday {
+            font-size: 24px;
+            color: var(--green-dark);
+            font-weight: 600;
+        }
+
+        .modal-comment-label {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 24px;
+            color: var(--green-medium);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .modal-comment {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 24px;
+            line-height: 1.8;
+            color: rgba(0,0,0,0.8);
+            text-align: center;
+            padding: 25px;
+            background: rgba(var(--card-color-rgb), 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(var(--card-color-rgb), 0.3);
+        }
+
+        /* Decorative Dashed Lines */
+        .dashed-line {
+            width: 100%;
+            height: 2px;
+            background-image: repeating-linear-gradient(
+                90deg,
+                var(--green-medium),
+                var(--green-medium) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            margin: 20px 0;
+        }
+
+        /* Sparkle Effect */
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--pink-medium);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkleAnim 1.5s ease-out forwards;
+        }
+
+        @keyframes sparkleAnim {
+            0% {
+                transform: translate(0, 0) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .story-container {
+                flex-direction: column;
+                margin: 0 15px 40px 15px;
+                padding: 50px 25px 30px 25px;
+            }
+            .story-image-wrapper {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px 40px;
+            }
+
+            .container {
+                padding: 40px 15px;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .modal-card {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+
+            .modal-photo {
+                height: 280px;
+            }
+
+            .member-photo {
+                height: auto;
+            }
+        }
+
+        /* Custom Scrollbar */
+        .modal-card::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .modal-card::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+
+        .modal-card::-webkit-scrollbar-thumb {
+            background: var(--pink-medium);
+            border-radius: 10px;
+        }
+
+        .modal-card::-webkit-scrollbar-thumb:hover {
+            background: var(--pink-dark);
+        }
+
+        /* Loading Animation */
+        @keyframes cardEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .member-card {
+            animation: cardEntrance 0.6s ease-out backwards;
+        }
+
+        .member-card:nth-child(1) { animation-delay: 0.1s; }
+        .member-card:nth-child(2) { animation-delay: 0.2s; }
+        .member-card:nth-child(3) { animation-delay: 0.3s; }
+        .member-card:nth-child(4) { animation-delay: 0.4s; }
+        .member-card:nth-child(5) { animation-delay: 0.5s; }
+        .member-card:nth-child(6) { animation-delay: 0.6s; }
+        .member-card:nth-child(7) { animation-delay: 0.7s; }
+        .member-card:nth-child(8) { animation-delay: 0.8s; }
+    </style>
+</head>
+<body>
+    <div class="floating-decor strawberry" style="top: 15%; left: 10%; animation-delay: 0s;">🍓</div>
+    <div class="floating-decor strawberry" style="top: 60%; right: 15%; animation-delay: 1s;">🍓</div>
+    <div class="floating-decor strawberry" style="bottom: 20%; left: 20%; animation-delay: 2s;">🍓</div>
+    <div class="floating-decor matcha" style="top: 25%; right: 8%; animation-delay: 0.5s;">🍵</div>
+    <div class="floating-decor matcha" style="bottom: 30%; right: 25%; animation-delay: 1.5s;">🍵</div>
+    <div class="floating-decor matcha" style="top: 70%; left: 12%; animation-delay: 2.5s;">🍵</div>
+
+    <section class="hero">
+        <div class="washi-tape top"></div>
+        <div class="hero-content">
+            <h1>ARCHIVE</h1>
+            <p class="hero-subtitle">Strawberry Matcha Edition 🍓🍵</p>
+        </div>
+        <div class="washi-tape bottom"></div>
+    </section>
+
+    <div class="container">
+        
+        <div class="story-container">
+            <div class="story-tape"></div>
+            <div class="story-image-wrapper">
+                <img src="photos/group-landscape.jpg" alt="Our Group" class="story-image">
+            </div>
+            <div class="story-text">
+                <h2 class="story-title">The Story....</h2>
+                <p>Assalamualaikum & hi semuaaa </p>
+                <p>Well...hmm x tau la nak start mcm mana tapi you guys are the family i have in Uni 😌</p>
+                <p>Group ni dibuat oleh Adib pada 17/1/2025 di tmpt teknikal 😭🤣 Dah setahun dah weh archive 😌 baru setahun je tpi rase mcm kenal korg lama nau dah. </p>
+                <p>Walaupun asal group ni dibuat mcm sedih la kan 😌 xpelah atleast skrg kita semua dah "happy" kan??. </p>
+                <p>Akhir kata (sje nak guna perkataan ni 😙) ,Lepas ni kita semua mungkin dah susah nak jumpa tapi aku harap persahabatan kita smua semoga smpai ke akhirnye ❤️</p>
+                <p>ps: aku x pndai buat ayat so minta maap lah 🍓🍵</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">The Archives</h2>
+
+        <div class="members-grid" id="membersGrid">
+            </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-card" id="modalCard">
+            <button class="modal-close" id="modalClose">×</button>
+            <div class="modal-content">
+                <div class="modal-photo" id="modalPhoto"></div> 
+                <div class="modal-header">
+                    <h3 class="modal-name" id="modalName">Member Name</h3>
+                    <p class="modal-birthday" id="modalBirthday">🎂 Birthday</p>
+                </div>
+                <div class="dashed-line"></div>
+                <p class="modal-comment-label">My Thoughts 💭</p>
+                <p class="modal-comment" id="modalComment">Your comment goes here...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Member Data
+        const members = [
+            {
+                name: "Paan",
+                birthday: "April 22",
+                comment: `well permulaan nye, dengan kemasukan kau nye semakin bising lagi archive ni 🤣 dan satu lagi kau slmtkan aku dri asik selalu sorg je laki lepak dgn diorg ni an (walaupun x kisah un sbnrnyaa) 😌 atleast adala sorg laki 
+                        Well org kta kau lagi nmpk "abg" dari aku walaupun aku lgi tua an 🤣 tpi aku x kisah un paham je 😌. Kau lah org yg light up the mood of this group 😆 semua org perlukan kau HAHAHAH 
+                        Well bknnye kita nk berpisah lgi ann soo itu jelah aku nk ckp 
+                        Jumpaa lagii bro`,
+                color: "var(--pastel-lavender)",
+                colorRgb: "255, 209, 220",
+                photo: "paan.jpg"
+            },
+            {
+                name: "Alieff",
+                birthday: "September 14",
+                comment: `Korang nak tau apa lagi psal aku ni?? HAHAHAH. Takkan aku nak tulis msg utk diri sendiri lah pulak an🤣`,
+                color: "var(--pastel-peach)",
+                colorRgb: "255, 218, 185",
+                photo: "alieff.jpg"
+            },
+            {
+                name: "Mona",
+                birthday: "September 18",
+                comment: "A true team player with an incredible work ethic. Your attention to detail and commitment make all the difference! 🎯",
+                color: "var(--pastel-yellow)",
+                colorRgb: "255, 250, 205",
+                photo: "mona.jpg"
+            },
+            {
+                name: "Ain",
+                birthday: "September 4",
+                comment: "Your calm presence and wise advice help guide us through any challenge. So grateful to have you on the team! 🍀",
+                color: "var(--pastel-sage)",
+                colorRgb: "199, 255, 218",
+                photo: "ain.jpeg"
+            },
+            {
+                name: "Fadhlina",
+                birthday: "November 8",
+                comment: "The creative genius we all admire! Your innovative ideas and unique perspective push us to think differently. 🎨",
+                color: "var(--pastel-blue)",
+                colorRgb: "212, 228, 255",
+                photo: "fadhlina.jpeg"
+            },
+            {
+                name: "Afiah",
+                birthday: "July 20",
+                comment: "Your kindness and supportive nature make you the heart of our group. You're always there when someone needs help! 💜",
+                color: "var(--pastel-pink)",
+                colorRgb: "230, 230, 250",
+                photo: "afiah.jpg"
+            },
+            {
+                name: "Najihah",
+                birthday: "March 15",
+                comment: "A powerhouse of talent and determination! Your leadership and vision inspire us to reach new heights together. 🚀",
+                color: "var(--pastel-coral)",
+                colorRgb: "255, 179, 186",
+                photo: "najihah.jpg"
+            },
+            {
+                name: "Adib",
+                birthday: "July 29",
+                comment: "The glue that holds us together! Your loyalty, humor, and genuine care for everyone make this team feel like family. 💚",
+                color: "var(--pastel-mint)",
+                colorRgb: "213, 232, 212",
+                photo: "adib.png"
+            }
+        ];
+
+        // Generate Member Cards
+        const membersGrid = document.getElementById('membersGrid');
+        
+        members.forEach((member, index) => {
+            const card = document.createElement('div');
+            card.className = 'member-card';
+            card.style.setProperty('--card-color', member.color);
+            card.style.setProperty('--card-color-rgb', member.colorRgb);
+            card.dataset.index = index;
+            
+            card.innerHTML = `
+                <div class="card-tape"></div>
+                <div class="member-photo">
+                    <img src="photos/${member.photo}" alt="${member.name}">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">${member.name}</h3>
+                    <p class="member-birthday">🎂 ${member.birthday}</p>
+                    <p class="member-preview">Click to see more...</p>
+                </div>
+            `;
+            
+            membersGrid.appendChild(card);
+        });
+
+        // Modal Functionality
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalCard = document.getElementById('modalCard');
+        const modalClose = document.getElementById('modalClose');
+        const modalName = document.getElementById('modalName');
+        const modalBirthday = document.getElementById('modalBirthday');
+        const modalComment = document.getElementById('modalComment');
+        const modalPhoto = document.getElementById('modalPhoto');
+
+        // Open Modal
+        membersGrid.addEventListener('click', (e) => {
+            const card = e.target.closest('.member-card');
+            if (!card) return;
+
+            const index = parseInt(card.dataset.index);
+            const member = members[index];
+
+            // Set modal content
+            modalName.textContent = member.name;
+            modalBirthday.textContent = `🎂 ${member.birthday}`;
+            modalComment.textContent = member.comment;
+            modalPhoto.innerHTML = `<img src="photos/${member.photo}" alt="${member.name}">`;
+            modalCard.style.setProperty('--card-color', member.color);
+            modalCard.style.setProperty('--card-color-rgb', member.colorRgb);
+
+            // Show modal
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Create sparkles
+            createSparkles(e.clientX, e.clientY);
+        });
+
+        // Close Modal
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Sparkle Effect
+        function createSparkles(x, y) {
+            const sparkleCount = 12;
+            
+            for (let i = 0; i < sparkleCount; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                
+                const angle = (Math.PI * 2 * i) / sparkleCount;
+                const distance = 50 + Math.random() * 50;
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
+                
+                sparkle.style.left = x + 'px';
+                sparkle.style.top = y + 'px';
+                sparkle.style.setProperty('--tx', tx + 'px');
+                sparkle.style.setProperty('--ty', ty + 'px');
+                
+                // Random color
+                const colors = ['var(--pink-medium)', 'var(--green-medium)', 'var(--pink-light)', 'var(--green-light)'];
+                sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 1500);
+            }
+        }
+
+        // Hover Glow Effect on Images
+        const memberCards = document.querySelectorAll('.member-card');
+        memberCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.setProperty('--glow-intensity', '1');
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.setProperty('--glow-intensity', '0');
+            });
+        });
+
+        // Enhanced card interactions
+        memberCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+    </script>
+</body>
+</html>
